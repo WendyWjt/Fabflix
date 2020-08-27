@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Add a star</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style type="text/css">
+        body{background-image: url(https://i.loli.net/2020/04/22/V3FZUGSi7yIRdt9.jpg);background-repeat: no-repeat;background-size:cover;font-size: 16px;}
+        .form{background: rgba(255,255,255,0.2);width:400px;margin:100px auto;}
+        #login_form{display: block;}
+        #register_form{display: none;}
+        .fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
+        input[type="text"],input[type="password"]{padding-left:26px;}
+        .checkbox{padding-left:21px;}
+    </style>
+</head>
+
+<body>
+<div>
+    <ul class="nav navbar-nav navbar-right">
+        <a href="dashboard.html" class="navbar-brand">Dashboard</a>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="form row">
+        <form action="#" method="post" class="form-horizontal col-sm-offset-3 col-md-offset-3" id="search_form">
+            <h3 class="form-title">Add a movie</h3>
+            <div class="col-sm-9 col-md-9">
+                <div class="form-group">
+                    <i class="fa fa-user fa-lg"></i>
+                    Starname: <input class="form-control required" type="text" placeholder="starname" id="starname" autofocus="autofocus"/>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-user fa-lg"></i>
+                    Year: <input class="form-control required" type="text" placeholder="birthyear" id="birthyear" autofocus="autofocus"/>
+                </div>
+
+                <div id="login_error_message" style="color: red"></div>
+                <div class="form-group">
+                    <button  type="button" class="btn btn-success pull-right" onclick="starInsert()">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- include jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- include our own JS file -->
+<script src="./starinsert.js"></script>
+
+</body>
+</html>

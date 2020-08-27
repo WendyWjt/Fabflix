@@ -1,0 +1,150 @@
+<!-- This example is following frontend and backend separation.
+
+    This .html performs two steps:
+    1. Create a html template skeleton, with all the elements defined (some left empty) and named with ids.
+    2. Load index.js to populate the data into empty elements.
+    -->
+
+<!Doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="jumbotron.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>Dashboard</title>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+        /* General Buttons */
+        button.butt {
+            width: 90px;
+            height: 20px;
+            background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
+            border: none;
+            border-radius: 5px;
+            position: relative;
+            border-bottom: 4px solid #2b8bc6;
+            color: #fbfbfb;
+            font-weight: 600;
+            font-family: 'Open Sans', sans-serif;
+            text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+            font-size: 12px;
+            text-align: left;
+            text-indent: 5px;
+            box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+            cursor: pointer;
+
+            /* Just for presentation */
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        button.butt:active {
+            box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+            top: 1px;
+        }
+
+        button.butt:after {
+            content: "";
+            width: 0;
+            height: 0;
+            display: block;
+            border-top: 10px solid #187dbc;
+            border-bottom: 10px solid #187dbc;
+            border-left: 8px solid transparent;
+            border-right: 10px solid #187dbc;
+            position: absolute;
+            opacity: 0.6;
+            right: 0;
+            top: 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        table
+        {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="mainpage.html">Fabflix</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar" style="display: flex">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="starinsert.html" class="navbar-brand">Insert a star</a>
+                </li>
+                <li class="dropdown">
+                    <a href="movieinsert.html" class="navbar-brand">Insert a movie</a>
+                </li>
+            </ul>
+        </div><!--/.navbar-collapse -->
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <table id=star_table class="table table-striped">
+            <!-- Create a table header -->
+            <thead>
+            <tr>
+                <!-- Titles of each column-->
+                <th id="Title">Table</th>
+                <th>Field</th>
+                <th>Type</th>
+            </tr>
+            </thead>
+            <!-- Table body is left empty here, will be populated with the data retrieved with index.js -->
+            <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+            <tbody id=dashboard_table_body></tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- Load our own JS file -->
+<!-- The path is relative to index.html, since these two files are in the same directory -->
+<!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+     otherwise the url is relative to the root path-->
+<script src="dashboard.js"></script>
+</body>
+
+
+</html>

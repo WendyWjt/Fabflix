@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- include jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Using jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+
+    <!--
+    <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+    <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+    -->
+
+    <!-- include jquery autocomplete JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="jumbotron.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        .browsingLinks {
+            font-size: 13px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: row;
+            -moz-box-orient: horizontal;
+            -moz-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-align: start;
+            -webkit-align-items: flex-start;
+            -moz-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            margin: 0 0 14px 0;
+            padding: 0;
+        }
+        .genreLinkWrapper {
+            list-style-type: none;
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 25%;
+            -moz-box-flex: 0;
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            margin-bottom: 16px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .titleLinkWrapper {
+            list-style-type: none;
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 10%;
+            -moz-box-flex: 0;
+            -ms-flex: 0 0 10%;
+            flex: 0 0 10%;
+            margin-bottom: 16px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .link {
+            color: #808080;
+            text-decoration: none;
+        }
+
+        /*
+        .autocomplete_container {
+            height: 80%;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .autocomplete-searchbox {
+            height: 50px;
+            width: 600px;
+        }
+
+         */
+
+
+        .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+        .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+        .autocomplete-selected { background: #F0F0F0; }
+        .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+        .autocomplete-group { padding: 2px 5px; }
+        .autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" stype="alignment: center">Fabflix</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar" style="display: flex">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="autocomplete_container" style="display: flex; alignment: center; height: 70%">
+                        <input type="search" name="movieTitle" id="autocomplete"
+                               class="autocomplete-searchbox form-control"
+                               placeholder="Search Title"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="shopping-cart.html" class="navbar-brand" stype="alignment: center">
+                        &nbsp; &nbsp;
+                        <svg class="bi bi-bag-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 4h14v10a2 2 0 01-2 2H3a2 2 0 01-2-2V4zm7-2.5A2.5 2.5 0 005.5 4h-1a3.5 3.5 0 117 0h-1A2.5 2.5 0 008 1.5z"/>
+                        </svg>
+                    </a>
+                </li>
+                <!--
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </div><!--/.navbar-collapse -->
+    </div>
+</nav>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>Welcome to Fabflix!</h1>
+        <p>This is a website for movie marketing, it includes lots of interesting movies. Enjoy yourself here.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button" onclick="javascrtpt:window.location.href='searchpage.html'">Search for movies &raquo;</a></p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Browsing by genres</h2>
+            <ul class="browsingLinks" id="browserGenre"></ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Browsing by title</h2>
+            <ul class="browsingLinks" id="browserTitle"></ul>
+        </div>
+        <div class="col-md-4">
+            <h2>View high rating movies</h2>
+            <p>Don't know which one you want? We select 20 top rating movies for you.</p>
+            <p><a class="btn btn-default" href="index.html" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2020 Company, Inc.</p>
+    </footer>
+</div> <!-- /container -->
+
+<script src="mainpage.js"></script>
+</body>
+</html>
